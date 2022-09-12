@@ -28,7 +28,7 @@
                 <mxCell id="71" value="Pay_form" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
                     <mxGeometry x="470" y="355" width="160" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="72" value="postal_code&#10;prefecture_id&#10;city&#10;address&#10;pohne_number&#10;buy_item" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="71">
+                <mxCell id="72" value="postal_code&#10;prefecture_id&#10;city&#10;building&#10;address&#10;pohne_number&#10;buy_item" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="71">
                     <mxGeometry y="26" width="160" height="94" as="geometry"/>
                 </mxCell>
                 <mxCell id="81" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="43" target="72">
