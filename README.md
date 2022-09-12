@@ -49,7 +49,6 @@
 |prefecture_id| integer    | null: false                                 |
 |city         | string     | null: false                                 |
 |address      | string     | null: false                                 |
-|building     | string     | null: false                                 |
 |phone_number | string     | null: false                                 |
 |button       | string     | null: false                                 |
 |buy_item     | references | null: false, foreign_key: true              |
