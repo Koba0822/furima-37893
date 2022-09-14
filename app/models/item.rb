@@ -5,11 +5,11 @@ class Item < ApplicationRecord
   has_one :buy_item
   has_one_attached :image
 
-  belongs_to :category
+  belongs_to :item_category
   belongs_to :prefecture
   belongs_to :item_status
-  belongs_to :shipping_cost
-  belongs_to :shipping_date
+  belongs_to :item_shipping_cost
+  belongs_to :item_shipping_date
 
   with_options presence: true do
     validates :user_id
