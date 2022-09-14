@@ -1,14 +1,13 @@
 FactoryBot.define do
   factory :user do
-    nickname              { "テスト太郎" }
-    email                 { "usertest@usertest.com" }
-    password              { "test1234" }
-    password_confirmation { "test1234" }
-    profile               { nil }
-    last_name             { "山田" }
-    first_name            { "太郎" }
-    kana_last_name        { "ヤマダ" }
-    kana_first_name       { "タロウ" }
-    birthday              { Date.new(1990, 01, 01) }
+    nickname { Faker::Name.name }
+    email { Faker::Internet.unique.email }
+    password { '1a' + Faker::Internet.unique.password(min_length: 6) }
+    password_confirmation { password }
+    last_name { '山田' }
+    first_name { '陸太郎' }
+    last_name_kana { 'ヤマダ' }
+    first_name_kana { 'リクタロウ' }
+    user_birth_date { Faker::Date.birthday }
   end
 end
