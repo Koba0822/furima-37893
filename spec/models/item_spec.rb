@@ -29,8 +29,13 @@ RSpec.describe Item, type: :model do
         @item.shipping_date_id = 1
         expect(@item).to be_valid
       end
-      it '価格が半角数字でかつ300円〜9,999,999円であれば登録できる' do
+      it '価格が300円〜9,999,999円であれば登録できる' do
         @item.price = 300
+        expect(@item).to be_valid
+      end
+      it '価格が半角数字でのみ保存ができる' do
+        @item.price = 1111
+        item.price_confirmation = '11111'
         expect(@item).to be_valid
       end
     end
@@ -124,7 +129,4 @@ RSpec.describe Item, type: :model do
     end
   end
 end
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
+
