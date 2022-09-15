@@ -2,7 +2,6 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user
-  has_one :buy_item
   has_one_attached :image
 
   belongs_to :item_category
@@ -12,7 +11,6 @@ class Item < ApplicationRecord
   belongs_to :item_shipping_date
 
   with_options presence: true do
-    validates :user_id
     validates :image
     validates :item_name
     validates :item_info
