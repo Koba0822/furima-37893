@@ -46,23 +46,23 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @item.user.nickname %></td>
+          <%#td class="detail-value"><%= @item.user.nickname %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @item.item_category.name %></td>
+          <%#td class="detail-value"><%= @item.item_category.name %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @item.item_status.name %></td>
+          <%#td class="detail-value"><%= @item.item_status.name %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= @item.item_shipping_cost.name %></td>
+          <%#td class="detail-value"><%= @item.item_shipping_cost.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @item.prefecture.name %></td>
+          <%#td class="detail-value"><%= @item.prefecture.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
@@ -105,6 +105,6 @@
       後ろの商品 ＞
     </a>
   </div>
-  <a href="#" class='another-item'><%= @item.item_category.name %>をもっと見る</a>
+  <%#a href="#" class='another-item'><%= @item.item_category.name %>をもっと見る</a>
 </div>
 <%= render "shared/footer" %>
