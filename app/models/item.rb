@@ -13,7 +13,7 @@ class Item < ApplicationRecord
 
   with_options presence: true do
     validates :user_id
-    validates :item_image
+    validates :image
     validates :item_name
     validates :item_info
     validates :item_category_id
@@ -22,7 +22,7 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :item_shipping_date_id
     # 300円以上かつ9,999,999円以下で、半角数字でないと入力不可
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+    validates :item_price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
   # ジャンルの選択が「--」の時は保存不可
