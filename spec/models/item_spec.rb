@@ -36,7 +36,6 @@ RSpec.describe Item, type: :model do
       it '価格が半角数字でのみ保存ができる' do
         @item.item_price = 300
         expect(@item).to be_valid
-
       end
     end
 
@@ -64,7 +63,7 @@ RSpec.describe Item, type: :model do
       it 'カテゴリーの情報が「---」だと出品できない' do
         @item.item_category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item category must be other than 0")
+        expect(@item.errors.full_messages).to include('Item category must be other than 0')
       end
       it 'カテゴリーの情報が空欄だと出品できない' do
         @item.item_category_id = nil
@@ -84,7 +83,7 @@ RSpec.describe Item, type: :model do
       it '配送料の負担の情報が「---」だと出品できない' do
         @item.item_shipping_cost_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item shipping cost must be other than 0")
+        expect(@item.errors.full_messages).to include('Item shipping cost must be other than 0')
       end
       it '配送料の負担の情報が空欄だと出品できない' do
         @item.item_shipping_cost_id = nil
@@ -104,7 +103,7 @@ RSpec.describe Item, type: :model do
       it '発送までの日数の情報が「---」だと出品できない' do
         @item.item_shipping_date_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item shipping date must be other than 0")
+        expect(@item.errors.full_messages).to include('Item shipping date must be other than 0')
       end
       it '発送までの日数の情報が空欄だと出品できない' do
         @item.item_shipping_date_id = nil
@@ -119,19 +118,18 @@ RSpec.describe Item, type: :model do
       it '価格が半角数字以外なら出品できない' do
         @item.item_price = 'aaa'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item price is not a number")
+        expect(@item.errors.full_messages).to include('Item price is not a number')
       end
       it '価格の範囲が、300円未満だと出品できない' do
         @item.item_price = 100
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item price must be greater than or equal to 300")
+        expect(@item.errors.full_messages).to include('Item price must be greater than or equal to 300')
       end
       it '価格の範囲が、9,999,999円を超えると出品できない' do
         @item.item_price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item price must be less than or equal to 9999999")
+        expect(@item.errors.full_messages).to include('Item price must be less than or equal to 9999999')
       end
     end
   end
 end
-
