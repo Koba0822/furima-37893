@@ -1,7 +1,5 @@
 class ActiveTable < ApplicationRecord
-  
   belongs_to :item
-
 
   with_options numericality: { other_than: 0 } do
     validates :item_category_id

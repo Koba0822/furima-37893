@@ -52,7 +52,7 @@ RSpec.describe User, type: :model do
       it 'パスワードが空欄だと保存できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be blank",  "Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include("Password can't be blank", "Password confirmation doesn't match Password")
       end
       it 'パスワード（確認含む）が5文字以下だと保存できない' do
         @user.password = 'ab123'
@@ -61,22 +61,22 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'パスワード（確認含む）が数字だけだと登録できない' do
-        @user.password ='111111'
+        @user.password = '111111'
         @user.password_confirmation = '111111'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
+        expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
       end
       it 'パスワード（確認含む）が英字だけだと登録できない' do
         @user.password = 'aaaaaa'
         @user.password_confirmation = 'aaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
+        expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
       end
       it 'パスワード（確認含む）が全角だと登録できない' do
         @user.password = 'ああああああ'
         @user.password_confirmation = 'ああああああ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
+        expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
       end
       it 'パスワード（確認含む）が空欄だと保存できない' do
         @user.password = '123abc'
