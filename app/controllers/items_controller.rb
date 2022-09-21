@@ -35,12 +35,20 @@ class ItemsController < ApplicationController
 
   def update
     @item.update(item_params)
-    # バリデーションがOKであれば詳細画面へ
     if @item.valid?
       redirect_to item_path(item_params)
     else
-      # NGであれば、エラー内容とデータを保持したままeditファイルを読み込み、エラーメッセージを表示させる
       render 'edit'
+    end
+  end
+
+  def destroy
+    # ログインしているユーザーと同一であればデータを削除する
+    if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
     end
   end
 
