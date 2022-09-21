@@ -128,34 +128,32 @@
 
       <%# 商品データがある場合は、eachメソッドで一覧表示する %>
     <% @items.each do |item| %>
-      <%li class='list'>
+      <li class='list'>
         <%= link_to item_path(item) do %>
-          <%div class='item-img-content'>
-              <%= image_tag item.image.variant(resize: '500x500'), class: "item-img" if item.image.attached? %>
-                    <% 商品が売れていればsold outを表示(.present?でも可) %>
-                    <%#if item.order != nil %>
-                      <%#div class='sold-out'>
-                        <span>Sold Out!!</span>
-                      </div>
-                    <% end %>
-                <%/div>
-                <div class='item-info'>
-                <h3 class='item-name'>
-                  <%= item.item_name %>
-                <%/h3>
-                <div class='item-price'>
-                  <%span><%= item.item_price %>円<%br><%= item.item_shipping_cost.name %><%/span>
-                   <div class='star-btn'>
-                   <%= image_tag "star.png", class:"star-icon" %>
-                  <%span class='star-count'>0</span>
-                </div>
-              <% end %>
-            <%/div>
+        <div class='item-img-content'>
+        <%= image_tag item.image.variant(resize: '500x500'), class: "item-img" if item.image.attached? %>
+          <%# 商品が売れていればsold outを表示(.present?でも可) %>
+          <%# if item.order != nil %>
+          <%#div class='sold-out'>
+            <span>Sold Out!!</span>
           </div>
+          <% end %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.item_name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.item_price %>円<br><%= item.item_shipping_cost %></span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
         <% end %>
-      <%/li>
-    <% end %>
-
+      </li>
+      <% end %>
   <%# 商品がない場合はダミーを表示する %>
     <% if @items.blank? then %>
       <li class='list'>
