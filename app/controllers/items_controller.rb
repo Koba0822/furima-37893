@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
   # 重複処理をまとめる
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  before_action :login_item
+
   def index
     @items = Item.includes(:user).order('created_at DESC')
   end
@@ -23,8 +25,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-     #ログインしているユーザーと同一であればeditファイルが読み込まれる
-    if @item.user_id == current_user.id 
     else
       redirect_to root_path
     end
@@ -43,8 +43,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    # ログインしているユーザーと同一であればデータを削除する
-    if @item.user_id == current_user.id
       @item.destroy
       redirect_to root_path
     else
@@ -61,5 +59,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def login_item
+    if @item.user_id == current_user.id 
   end
 end
