@@ -20,7 +20,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    # この時点では、order_idが不要。またrequire外の情報は参照するため、mergeとする。
     params.require(:order_form).permit(:postcode, :prefecture_id, :city, :block, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 

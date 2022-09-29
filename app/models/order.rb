@@ -1,7 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :item
   belongs_to :user
-
-  attr_accessor :token
-  validates :token, presence: true
+  has_one :payment
 end
