@@ -1,6 +1,6 @@
 const pay = () => {
   // PAY.JPテスト公開鍵（payjp.jsライブラリの中で定義されているメソッド）
-  Payjp.setPublicKey("*******************");
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   // 入力フォーム全体を、変数に定義
   const form = document.getElementById("charge-form");
   // クリックした時に実行

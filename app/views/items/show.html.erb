@@ -7,15 +7,12 @@
       <%= @item.item_name %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag "item-sample.png" ,class:"item-box-img" %>
+      <%= image_tag @item.image.variant(resize: '500x500'),class:"item-box-img" %>
       <% if @item.order != nil %>
         <div class='sold-out'>
           <span>Sold Out!!</span>
         </div>
       <% end %>
-    </div>
-    <div class='item-img-content'>
-      <%= image_tag @item.image.variant(resize: '500x500'),class:"item-box-img" %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -29,6 +26,7 @@
     <% if current_user.id == @item.user_id && @item.order.nil? %> 
       <%= link_to '商品の編集', edit_item_path(@item), method: :get, class: "item-red-btn" %>
       <%= link_to '削除', item_path(@item), method: :delete, class:'item-destroy' %>
+      <% else %>
       <%= link_to '購入画面に進む', item_orders_path(@item), class:"item-red-btn"%>
     <% end %>
   <% end %>
@@ -48,7 +46,7 @@
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @item.item_info%></td>
+          <td class="detail-value"><%= @item.item_status.name%></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
